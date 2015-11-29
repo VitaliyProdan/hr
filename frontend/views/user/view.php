@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
 
-$this->title = 'Профіль '. $model->username;
+$this->title = 'Профіль '. $model->fullName;
 //$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -30,9 +30,9 @@ $this->title = 'Профіль '. $model->username;
                 <div class="row">
                     <div class="col-sm-3 col-md-3">
                         <div class="thumbnail">
-                            <div class="caption">
-                                <h4 class="text-by-center"><?= $model->username ?></h4>
-                            </div>
+<!--                            <div class="caption">-->
+<!--                                <h4 class="text-by-center">--><?//= $model->username ?><!--</h4>-->
+<!--                            </div>-->
                             <img src="<?= $model->photoUrl ?>" title="<?= $model->username ?>" />
                         </div>
                     </div>

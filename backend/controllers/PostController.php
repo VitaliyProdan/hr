@@ -8,6 +8,7 @@ use common\models\Post;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Url;
+use common\models\User;
 
 
 /**
@@ -107,9 +108,22 @@ class PostController extends AdminController
         return $this->redirect(['index']);
     }
 
-    public function actionFind_workers(){
-        $posts = Post::find()->where(['active' => 1])->all();
-        //$posts = 12313
+    public function actionFind_workers($id){
+        $post = $this->findModel($id);
+        $users = User::find()->where(['category_id' => $post->category_id])->all();
+        foreach($users as $user){
+            $score = 0;
+            foreach ($user->tagIds as $user_tag_id){
+                if (in_array($user_tag_id, $post->tagIds)){
+                    $score++;
+                }
+            }
+            $user->percents = $score/count($post->tagIds)*100;
+        }
+        return $this->render('find_workers', [
+            'post' => $post,
+            'users' => $users
+        ]);
     }
 
     public function actions()

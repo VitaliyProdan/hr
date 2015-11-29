@@ -66,7 +66,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+
+            //['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => \yii\grid\ActionColumn::className(),
+                'buttons'=>[
+                    'find_workers'=>function ($url, $model) {
+                        $customurl=Yii::$app->getUrlManager()->createUrl(['post/find_workers','id'=>$model['id']]); //$model->id для AR
+                        return \yii\helpers\Html::a( '<span class="glyphicon glyphicon-search"></span>', $customurl,
+                            ['title' => 'Знайти працівників', 'data-pjax' => '0']);
+                    }
+                ],
+                'template'=>'{find_workers}{view}{update}{delete}',
+            ]
+
         ],
     ]); ?>
 

@@ -29,6 +29,7 @@ class User extends ActiveRecord implements IdentityInterface
     public $qty;
     private $_tagIds;
     public $image_is_removed = false;
+    public $percents;
     /**
      * @inheritdoc
      */
@@ -92,7 +93,15 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     public function getPhotoUrl(){
-        return  \Yii::$app->request->BaseUrl . $this->photo;
+        if ($this->photo){
+            return  \Yii::$app->request->BaseUrl . $this->photo;
+        }else{
+            return  \Yii::$app->request->BaseUrl. '/images/blank-photo.png';
+        }
+    }
+
+    public function getBackendPhotoUrl(){
+        return '/././frontend/web' . $this->photo;
     }
 
     /**
@@ -294,5 +303,22 @@ class User extends ActiveRecord implements IdentityInterface
     public static function categoryList(){
         $parents = ArrayHelper::getColumn(Category::find()->where('parent_id > 0')->distinct('parent_id')->all(), 'parent_id');
         return ArrayHelper::map(Category::find()->where(['not `id`' => $parents])->all(), 'id', 'title');
+    }
+
+    public function getYearOfBirth(){
+        return end(explode('.', $this->date_of_birth));
+    }
+
+    public function getProgressColor(){
+        if($this->percents){
+            if ($this->percents >= 75){return 'success';}
+            else if ($this->percents >= 50){return 'info';}
+            else if ($this->percents >= 25){return 'warning';}
+            else if ($this->percents >= 1){return 'danger';}
+        }
+    }
+
+    public function GetFullName(){
+        return $this->first_name . ' '. $this->last_name;
     }
 }

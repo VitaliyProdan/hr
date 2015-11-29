@@ -47,8 +47,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Свіжа',
                 'value' => $model->featured? 'Так' : 'Ні'
             ],
-
-            'user.username',
+            [
+                'label' => 'Створив',
+                'value' => $model->user->username
+            ],
         ],
     ]) ?>
 

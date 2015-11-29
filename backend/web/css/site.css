@@ -159,3 +159,25 @@ a.desc:after {
 .post-view-buttons{
     margin: 10px 0 10px;
 }
+.post-index table.table tbody tr td:last-child{
+    min-width: 100px;
+}
+.post-index table.table tbody tr td:last-child a{
+    margin: 0 3px;
+}
+.post-find-worker .photo{
+    max-width: 100px;
+    min-height: 100px;
+}
+.text-by-center{
+    text-align: center;
+}
+.white-bg{
+    background-color: #ffffff;
+}
+.user-progress{
+    margin-top: 75px;
+}
+.find-worker-panel{
+    cursor: pointer;
+}
