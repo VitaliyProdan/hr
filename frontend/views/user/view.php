@@ -84,7 +84,9 @@ $this->title = 'Профіль '. $model->username;
                         </p>
                     </div>
                     <div class="col-md-3">
-                        <h3>Навички</h3>
+                        <h3 class="inline">Спеціалінсть: </h3>
+                        <p class="user-info inline"><?= $model->category->title ?></p>
+                        <h3 class="skills">Навички</h3>
                         <?php foreach ($model->tags as $tag): ?>
                           <p class="user-info"> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <?= $tag->title ?></p>
                         <?php endforeach; ?>

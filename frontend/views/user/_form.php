@@ -26,6 +26,7 @@ use kartik\file\FileInput;
                     'allowedFileExtensions'=> ['jpg', 'gif', 'png', 'bmp'],
                 ]
             ]);?>
+            <?= $form->field($model, 'category_id')->dropDownList($model->categoryList()) ?>
             <?= $form->field($model, 'tagIds')->checkboxList(ArrayHelper::map(\common\models\Tag::find()->all(), 'id', 'title')) ?>
         </div>
         <div class="col-md-6">

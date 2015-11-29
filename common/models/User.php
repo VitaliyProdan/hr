@@ -55,8 +55,8 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['image_is_removed'], 'integer'],
-            [['image_is_removed'], 'safe'],
+            [['image_is_removed', 'category_id'], 'integer'],
+            [['image_is_removed', 'category_id'], 'safe'],
             [['about'], 'string'],
             [['first_name', 'last_name', 'role','date_of_birth',
                 'photo', 'gender', 'city', 'phone', 'address'], 'string', 'max' => 255],
@@ -79,7 +79,8 @@ class User extends ActiveRecord implements IdentityInterface
             'address' => 'Адреса',
             'about' => 'Про себе',
             'date_of_birth' => 'Дата народженя',
-            'tagIds' => 'Навички'
+            'tagIds' => 'Навички',
+            'category_id' => 'Напрям'
         ];
     }
 
@@ -284,5 +285,14 @@ class User extends ActiveRecord implements IdentityInterface
         }
         $this->updated_at = time();
         return true;
+    }
+
+    public function getCategory () {
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
+    }
+
+    public static function categoryList(){
+        $parents = ArrayHelper::getColumn(Category::find()->where('parent_id > 0')->distinct('parent_id')->all(), 'parent_id');
+        return ArrayHelper::map(Category::find()->where(['not `id`' => $parents])->all(), 'id', 'title');
     }
 }

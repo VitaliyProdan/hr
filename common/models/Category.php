@@ -53,6 +53,12 @@ class Category extends \yii\db\ActiveRecord
         return $this->hasMany(Post::className(), ['category_id' => 'id']);
     }
 
+    public function getUsers()
+    {
+        return $this->hasMany(User::className(), ['category_id' => 'id']);
+    }
+
+
     public function getParent(){
         return $this->hasOne(Category::className(), ['id' => 'parent_id']);
     }
