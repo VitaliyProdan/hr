@@ -109,7 +109,7 @@ class PostController extends AdminController
 
     public function actionFind_workers(){
         $posts = Post::find()->where(['active' => 1])->all();
-        //$posts =
+        //$posts = 12313
     }
 
     public function actions()
