@@ -126,14 +126,15 @@ class SliderController extends AdminController
     protected function saveImages($model){
         $upload_image = UploadedFile::getInstance($model, 'upload_image');
         $upload_background = UploadedFile::getInstance($model, 'upload_background');
-        if(!empty($upload_image) && !empty($upload_background)) {
-            $dir = Yii::getAlias('@frontend/web/images/homepage-slider/');
-
+        $dir = Yii::getAlias('@frontend/web/images/homepage-slider/');
+        if(!empty($upload_image)) {
             $model->image = '/images/homepage-slider/' . $upload_image->name;
-            $model->background = '/images/homepage-slider/' . "slider-bg$model->id.jpg";
             $upload_image->saveAs($dir . $upload_image->name);
-            $upload_background->saveAs($dir . "slider-bg$model->id.jpg");
-            $model->save();
         }
+        if(!empty($upload_background)){
+            $model->background = '/images/homepage-slider/' . "slider-bg$model->id.jpg";
+            $upload_background->saveAs($dir . "slider-bg$model->id.jpg");
+        }
+        $model->save();
     }
 }
