@@ -70,4 +70,13 @@ class Utils
         }
     }
 
+    public static function progressColor($percents){
+        if($percents){
+            if ($percents >= 75){return 'success';}
+            else if ($percents >= 50){return 'info';}
+            else if ($percents >= 25){return 'warning';}
+            else if ($percents >= 1){return 'danger';}
+        }
+    }
+
 }

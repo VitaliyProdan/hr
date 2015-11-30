@@ -99,6 +99,9 @@ $this->title = 'Профіль '. $model->fullName;
                         <?= $model->about ?>
                     </p>
                 </div>
+                <div class="col-md-12 find-job">
+                    <?=  Html::a('Знайти вакансію', ['user/find_job', 'id' => $model->id], ['class' => 'find-job-link btn btn-primary btn-lg'])  ?>
+                </div>
             </div>
         </div>
     </div>

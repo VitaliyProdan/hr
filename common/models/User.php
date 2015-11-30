@@ -309,15 +309,6 @@ class User extends ActiveRecord implements IdentityInterface
         return end(explode('.', $this->date_of_birth));
     }
 
-    public function getProgressColor(){
-        if($this->percents){
-            if ($this->percents >= 75){return 'success';}
-            else if ($this->percents >= 50){return 'info';}
-            else if ($this->percents >= 25){return 'warning';}
-            else if ($this->percents >= 1){return 'danger';}
-        }
-    }
-
     public function GetFullName(){
         return $this->first_name . ' '. $this->last_name;
     }

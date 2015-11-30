@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use frontend\helpers\Utils;
 
 
 /* @var $this yii\web\View */
@@ -51,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                         <div class="col-md-5 user-progress">
                             <div class="progress">
-                                <div class="progress-bar progress-bar-<?= $user->progressColor ?> progress-bar-striped" role="progressbar"
+                                <div class="progress-bar progress-bar-<?= Utils::progressColor($user->percents) ?> progress-bar-striped" role="progressbar"
                                      aria-valuenow="<?= $user->percents ?>" aria-valuemin="0" aria-valuemax="100"
                                      style="width: <?= $user->percents ?>%" >
                                     <?= $user->percents ?>%

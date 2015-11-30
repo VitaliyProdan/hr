@@ -22,6 +22,7 @@ class Post extends \yii\db\ActiveRecord
 
     public $qty;
     private $_tagIds;
+    public $percents;
     /**
      * @inheritdoc
      */
@@ -38,8 +39,8 @@ class Post extends \yii\db\ActiveRecord
         return [
             [['title', 'content', 'category_id', 'created_by'], 'required'],
             [['content'], 'string'],
-            [['category_id', 'created_by', 'active', 'featured'], 'integer'],
-            [['created_at'], 'safe'],
+            [['category_id', 'created_by', 'active', 'featured', 'percents'], 'integer'],
+            [['created_at', 'percents'], 'safe'],
             [['title'], 'string', 'max' => 255]
         ];
     }
@@ -151,6 +152,12 @@ class Post extends \yii\db\ActiveRecord
 
     public static function recent_post(){
         return Post::find()->limit(5)->orderBy('created_at desc')->all();
+    }
+
+    public function truncateContent($length=601){
+        $text = mb_substr(strip_tags($this->content), 0, $length, "UTF-8");
+        if(strlen(strip_tags($this->content))>601) $text .= '...';
+        return $text;
     }
 
 }

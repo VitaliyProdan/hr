@@ -64,8 +64,7 @@ Url::remember();
                     <div class="col-sm-8">
                         <h3><?= Html::a($post->title, ['view', 'id' => $post->id]) ?></h3>
                         <div class="post-content">
-                            <?= mb_substr(strip_tags($post->content), 0, 601, "UTF-8"); ?>
-                            <?php if(strlen(strip_tags($post->content))>601) echo '...'; ?>
+                            <?= $post->truncateContent() ?>
                         </div>
                         <div class="post-tags">
                             <?php foreach ($post->tags as $tag): ?>

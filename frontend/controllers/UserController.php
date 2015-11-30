@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Post;
 use Yii;
 use common\models\User;
 use yii\web\Controller;
@@ -76,5 +77,23 @@ class UserController extends Controller
             $model->photo = $old_photo;
         }
         $model->save();
+    }
+
+    public function actionFind_job($id){
+        $user = $this->findModel($id);
+        $posts = Post::find()->where(['active' => 1])->Andwhere(['category_id' => $user->category_id])->all();
+        foreach($posts as $post){
+            $score = 0;
+            foreach ($post->tagIds as $post_tag_id){
+                if (in_array($post_tag_id, $user->tagIds)){
+                    $score++;
+                }
+            }
+            $post->percents = $score/count($post->tagIds)*100;
+        }
+        return $this->render('find_job', [
+            'posts' => $posts,
+            'user' => $user
+        ]);
     }
 }
