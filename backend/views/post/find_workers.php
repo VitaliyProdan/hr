@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php if (count($users) == 0): ?>
         <div class="alert alert-warning" role="alert">
-            Для даної професії не знайдено жодного працівника.
+            Для даної Вакансії не знайдено жодного працівника.
         </div>
     <?php else: ?>
         <?php foreach($users as $k => $user): ?>

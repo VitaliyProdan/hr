@@ -23,7 +23,7 @@ $this->title = 'Головна';
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"><?= $postsCount ?></div>
-                                <div>Всього статтей</div>
+                                <div>Всього вакансій</div>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ $this->title = 'Головна';
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"><?= $categoryCount ?></div>
-                                <div>Всього категорій</div>
+                                <div>Всього напрямків</div>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ $this->title = 'Головна';
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"><?= $mostPopularCategory->qty ?></div>
-                                <div> Топ категорія: <b><?= $mostPopularCategory->title ?></b></div>
+                                <div> Топ напрямок: <b><?= $mostPopularCategory->title ?></b></div>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@ $this->title = 'Головна';
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge"><?= $mostPopularTag->qty ?></div>
-                                <div> Топ тег: <b><?= $mostPopularTag->title ?></b></div>
+                                <div> Навички: <b><?= $mostPopularTag->title ?></b></div>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@ $this->title = 'Головна';
             <div class="col-lg-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <?= Html::a('<h4><i class="glyphicon glyphicon-list-alt"></i> Останні статті</h4>', ['/post/index'])?>
+                        <?= Html::a('<h4><i class="glyphicon glyphicon-list-alt"></i> Останні вакансії</h4>', ['/post/index'])?>
                     </div>
                     <ul class="list-group">
                         <?php foreach($lastPosts as $post): ?>
@@ -123,7 +123,7 @@ $this->title = 'Головна';
             <div class="col-lg-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <?= Html::a('<h4><i class="glyphicon glyphicon-thumbs-up"></i> Рекомендовані статті</h4>', ['/post/index'])?>
+                        <?= Html::a('<h4><i class="glyphicon glyphicon-thumbs-up"></i> Термінові вакансії</h4>', ['/post/index'])?>
                     </div>
                     <ul class="list-group">
                         <?php foreach($featured as $post): ?>

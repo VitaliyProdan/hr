@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model common\models\Post */
 
 $this->title = 'Редагувати професію: ' . ' ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Професії', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Вакансії', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Редагування';
 ?>

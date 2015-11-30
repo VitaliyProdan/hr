@@ -44,7 +44,7 @@ AppAsset::register($this);
                     ['label' => '<i class="glyphicon glyphicon-home"></i> Головна', 'url' => ['/site/index']],
                     ['label' => '<i class="glyphicon glyphicon-user"></i> Користувачі', 'url' => ['/user/index']],
                     ['label' => '<i class="glyphicon glyphicon-bookmark"></i> Напрями', 'url' => ['/category/index']],
-                    ['label' => '<i class="glyphicon glyphicon-list-alt"></i> Професії', 'url' => ['/post/index']],
+                    ['label' => '<i class="glyphicon glyphicon-list-alt"></i> Вакансії', 'url' => ['/post/index']],
                     ['label' => '<i class="glyphicon glyphicon-education"></i> Навички', 'url' => ['/tag/index']],
                     ['label' => '<i class="glyphicon glyphicon-film"></i> Слайдер', 'url' => ['/slider/index']]
                 );

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\PostSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Професії';
+$this->title = 'Вакансії';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="post-index">

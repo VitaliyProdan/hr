@@ -29,7 +29,7 @@ AppAsset::register($this);
                 <nav id="mainmenu" class="mainmenu">
                     <ul>
 
-                        <li class="logo-wrapper"><a href="/"><img id="menu-logo" src="/images/logo.png" alt="Лабораторія кафедри КМДіП"></a></li>
+                        <li class="logo-wrapper"><a href="/"><img id="menu-logo" src="/images/logo.png" alt="Центр Зайнятості"></a></li>
 
                         <?php $menuItems = \common\models\Category::get_menu(); ?>
                         <?php echo Nav::widget([
