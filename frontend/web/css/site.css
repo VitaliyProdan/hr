@@ -300,3 +300,6 @@ div.vertical-border h3{
     font-size: 16px;
     line-height: 26px;
 }
+.index-text li{
+    text-indent: 0;
+}

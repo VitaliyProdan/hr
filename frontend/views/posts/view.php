@@ -58,7 +58,7 @@ $this->registerMetaTag(['name' => 'og:description', 'content' => strip_tags($pos
             <!-- End Blog Post -->
             <!-- Sidebar -->
             <div class="col-sm-4 blog-sidebar">
-                <h4>Пошук статті</h4>
+                <h4>Пошук вакансії</h4>
                 <form action="<?=  Url::toRoute(['/posts/search']);?>" method="post" name="Search">
                     <div class="input-group">
                         <input  name="query" class="form-control input-md" id="appendedInputButtons" type="text" value="">
@@ -67,13 +67,13 @@ $this->registerMetaTag(['name' => 'og:description', 'content' => strip_tags($pos
                         </span>
                     </div>
                 </form>
-                <h4>Останні статті</h4>
+                <h4>Останні вакансії</h4>
                 <ul class="recent-posts">
                     <?php foreach (\common\models\Post::recent_post() as $v): ?>
                         <li><?= Html::a($v->title, ['view', 'id' => $v->id]) ?></li>
                     <?php endforeach ?>
                 </ul>
-                <h4>Теги</h4>
+                <h4>Навички</h4>
                 <ul class="tag-list">
                     <?php foreach ($post->tags as $tag): ?>
                         <li>
