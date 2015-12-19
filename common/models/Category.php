@@ -78,12 +78,12 @@ class Category extends \yii\db\ActiveRecord
     public static function get_menu(){
         $categories = Category::getParentsOnly();
         $categories = self::categoryToList($categories);
-        $sub_categories[] = ['label' => "Профіль", 'url' => Url::toRoute(['/user/view', 'id' => $userId = \Yii::$app->user->identity->id])];
         $sub_categories[] = ['label' => "Зворотний зв'язок", 'url' => Url::toRoute(['/site/contact'])];
         if (Yii::$app->user->isGuest) {
             $sub_categories[] = ['label' => 'Реєстрація', 'url' => Url::toRoute(['/site/signup'])];
             $sub_categories[] = ['label' => 'Вхід', 'url' => Url::toRoute(['/site/login'])];
         } else {
+            $sub_categories[] = ['label' => "Профіль", 'url' => Url::toRoute(['/user/view', 'id' => $userId = \Yii::$app->user->identity->id])];
             $sub_categories[] = [
                 'label' => 'Вихід (' . Yii::$app->user->identity->username . ')',
                 'url' => Url::toRoute(['/site/logout']),

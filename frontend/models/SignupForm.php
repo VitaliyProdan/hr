@@ -61,7 +61,7 @@ class SignupForm extends Model
         return [
             'id' => 'ID',
             'username' => "Ім'я користувача",
-            'password' => 'Паоль',
+            'password' => 'Пароль',
             'email' => 'E-mail'
         ];
     }

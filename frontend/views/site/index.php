@@ -4,6 +4,7 @@
 /* @var $featured */
 
 use yii\helpers\Html;
+use frontend\widgets\Alert;
 
 $this->title = 'Головна';
 ?>
@@ -63,6 +64,7 @@ $this->title = 'Головна';
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <?= Alert::widget() ?>
                     <h1 class="text-by-center">Відділ кадрів</h1>
                     <p class="index-text">
                         Відділ кадрів є самостійним структурним підрозділом, підпорядкованим ректору Університету.
