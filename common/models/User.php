@@ -306,7 +306,7 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     public function getYearOfBirth(){
-        return end(explode('.', $this->date_of_birth));
+        return $this->date_of_birth->empty == '' ? '' : end(explode('.', $this->date_of_birth));
     }
 
     public function GetFullName(){

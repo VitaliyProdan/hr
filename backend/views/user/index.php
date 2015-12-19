@@ -35,6 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'created_at',
 
             ],
+            [
+                'class' => \yii\grid\ActionColumn::className(),
+                'template'=>'{delete}',
+            ]
         ],
     ]); ?>
 
